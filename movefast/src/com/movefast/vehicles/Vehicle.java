@@ -64,7 +64,7 @@ public class Vehicle {
         return "Vehicle{" + "matricula=" + matricula + ", preuDia=" + preuDia + ", tipusCarnet=" + tipusCarnet + ", disponible=" + disponible + '}';
     }
     
-    
+    //canviant
     
     
 }
