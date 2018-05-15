@@ -5,7 +5,7 @@
  */
 package com.movefast.empresa;
 
-/
+
 public class Empresa {
     
     private int cif;
