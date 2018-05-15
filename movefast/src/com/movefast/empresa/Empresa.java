@@ -12,7 +12,7 @@ package com.movefast.empresa;
 public class Empresa {
     
     private String dni;
-    private String nom;
+   
     private String llinatge;
     private int telefon;
     private String numCompteBancari;
