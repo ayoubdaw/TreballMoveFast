@@ -5,17 +5,10 @@
  */
 package com.movefast.empresa;
 
-/**
- *
- * @author emilio
- */
+/
 public class Empresa {
     
-    private String dni;
-   
-    private String llinatge;
-    private int telefon;
-    private String numCompteBancari;
+    private int cif;
            
     
 }
