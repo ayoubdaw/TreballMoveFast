@@ -21,9 +21,9 @@ public class Prova {
         c.altaClient( Ayoub);
         c.altaClient(Emilio);
         HashMap<String, Client> clients = c.getClients();
-        
-        System.out.println(clients);
-        
+        c.baixaClient("46391111L");
+       // System.out.println(clients);
+       c.cercarClient("463911231L");
     }
     
 }
