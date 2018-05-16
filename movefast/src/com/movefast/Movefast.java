@@ -1,16 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.movefast;
 
-/**
- *
- * @author emilio
- */
-public class Movefast {
+import com.movefast.clients.Client;
+import java.util.HashMap;
 
+
+public class Movefast {
+   private HashMap<String, Client> clients;
    
+    public Movefast() {
+        clients = new HashMap<String, Client>();
+    }
+
+ 
+
+    public void altaClient( Client client) {
+        
+        clients.put(client.getDni(), client);
+        
+    }
     
+    public HashMap<String, Client> getClients() {
+        return clients;
+    }
+
 }
