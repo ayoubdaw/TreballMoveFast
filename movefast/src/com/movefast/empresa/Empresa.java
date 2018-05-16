@@ -8,13 +8,21 @@ package com.movefast.empresa;
 public class Empresa {
 
     private boolean descompte;
-    private int cif;
+    private String cif;
     private String nomEmpresa;
 
-    public Empresa(boolean descompte, int cif, String nomEmpresa) {
+    public Empresa(boolean descompte, String cif, String nomEmpresa) {
         this.descompte = descompte;
         this.cif = cif;
         this.nomEmpresa = nomEmpresa;
+    }
+
+    public String getCif() {
+        return cif;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
     }
 
     public boolean isDescompte() {
@@ -25,13 +33,6 @@ public class Empresa {
         this.descompte = descompte;
     }
 
-    public int getCif() {
-        return cif;
-    }
-
-    public void setCif(int cif) {
-        this.cif = cif;
-    }
 
     public String getNomEmpresa() {
         return nomEmpresa;
