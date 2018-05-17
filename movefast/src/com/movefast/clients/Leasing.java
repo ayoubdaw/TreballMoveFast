@@ -26,13 +26,4 @@ public class Leasing extends Client {
         this.mensualitat = mensualitat;
     }
 
-    @Override
-    public String toString() {
-        return "Leasing{" + "mensualitat=" + mensualitat + '}';
-    }
-
-    
-    
-    
-    
 }

@@ -15,12 +15,4 @@ public class Furgoneta extends Vehicle {
     public Furgoneta(String matricula, double preuDia, String tipusCarnet, boolean disponible) {
         super(matricula, preuDia, tipusCarnet, disponible);
     }
-
-    // to string - ens permet mostrar la informació completa de un objecte, es a dir el valor dels deus atributs.
-    @Override
-    public String toString() {
-        return "Furgoneta{" + '}';
-    }
-    
-    
 }

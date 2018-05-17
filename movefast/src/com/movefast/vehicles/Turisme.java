@@ -29,16 +29,4 @@ public class Turisme extends Vehicle {
         this.passatgers = passatgers;
     }
 
-    
-    
-    // to string - ens permet mostrar la informació completa de un objecte, es a dir el valor dels deus atributs.
-    @Override
-    public String toString() {
-        return "Turisme{" + "passatgers=" + passatgers + '}';
-    }
-    
-    
-    
-    
-    
 }

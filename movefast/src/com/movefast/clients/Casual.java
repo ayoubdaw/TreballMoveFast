@@ -26,13 +26,4 @@ public class Casual extends Client{
         this.pagament = pagament;
     }
 
-    @Override
-    public String toString() {
-        return "Casual{" + "pagament=" + pagament + '}';
-    }
-    
-    
-    
-    
-    
 }

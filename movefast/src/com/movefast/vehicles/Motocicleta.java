@@ -16,11 +16,4 @@ public class Motocicleta extends Vehicle {
         super(matricula, preuDia, tipusCarnet, disponible);
     }
 
-    // to string - ens permet mostrar la informació completa de un objecte, es a dir el valor dels deus atributs.
-    @Override
-    public String toString() {
-        return "Motocicleta{" + '}';
-    }
-    
-    
 }
