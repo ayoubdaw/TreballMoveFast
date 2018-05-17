@@ -2,7 +2,9 @@ package com.movefast.lloguer;
 
 import com.movefast.clients.Client;
 import com.movefast.vehicles.Vehicle;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 public class Lloguer {
     
     private int numFactura;
@@ -57,6 +59,16 @@ public class Lloguer {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+    
+    public double calculPreuLloguer(Vehicle vehicle){
+        double preuDia;
+        double totalPagar;
+        preuDia = vehicle.getPreuDia();
+        int restaDies;
+        restaDies = (int) (ChronoUnit.DAYS.between(dateEntrega, dateLliurament)+1);
+        totalPagar = preuDia*restaDies;
+        return totalPagar;
     }
    
 
