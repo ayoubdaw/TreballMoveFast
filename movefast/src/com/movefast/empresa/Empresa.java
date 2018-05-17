@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.movefast.empresa;
 
 public class Empresa {
@@ -11,12 +6,14 @@ public class Empresa {
     private String cif;
     private String nomEmpresa;
 
+    // CONSTRUCTOR DE EMPRESA
     public Empresa(boolean descompte, String cif, String nomEmpresa) {
         this.descompte = descompte;
         this.cif = cif;
         this.nomEmpresa = nomEmpresa;
     }
-
+    
+    //GETTERS I SETTERS DE EMPRESA
     public String getCif() {
         return cif;
     }

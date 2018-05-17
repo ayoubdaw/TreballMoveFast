@@ -17,55 +17,66 @@ public class Movefast {
         vehicles = new HashMap<String, Vehicle>();
     }
     
-    public void altaClient(Client client) {
+    // Dona d'alta un client.
+    public void altaClient(Client client) { 
         
         clients.put(client.getDni(), client);
         
     }
     
-    public void baixaClient(String dni) {
+    // Dona de baixa un client per el seu DNI.
+    public void baixaClient(String dni) { 
         clients.remove(dni);
         
     }
     
-    public Client cercarClient(String dni) {
+    // Cerca un client per el seu DNI.
+    public Client cercarClient(String dni) { 
         return clients.get(dni);
         
     }
     
-    public HashMap<String, Client> getClients() {
+    // Metode per fer proves a la nostra clase de proves (Per mostrar per la consola).
+    public HashMap<String, Client> getClients() { 
         return clients;
     }
     
-    public void altaEmpresa(Empresa empresa) {
+    // Dona d'alta una empresa.
+    public void altaEmpresa(Empresa empresa) { 
         
         empreses.put(empresa.getCif(), empresa);
         
     }
     
-    public void baixaEmpresa(String cif) {
+    // Dona de baixa una empresa per un cif.
+    public void baixaEmpresa(String cif) { 
         empreses.remove(cif);
         
     }
     
-    public Empresa cercarEmpresa(String cif) {
+    // Cerca una empresa per el seu cif.
+    public Empresa cercarEmpresa(String cif) { 
         return empreses.get(cif);
     }
     
-    public void altaVehicle(Vehicle vehicle) {
+    // Dona d'alta un vehicle.
+    public void altaVehicle(Vehicle vehicle) { 
         vehicles.put(vehicle.getMatricula(), vehicle);
         
     }
     
-    public void baixaVehicle(String matricula) {
+    // Dona de baixa un vehicle per la seva matricula.
+    public void baixaVehicle(String matricula) { 
         vehicles.remove(matricula);
     }
     
-    public Vehicle cercarVehicle(String matricula) {
+    // Cerca un vehicle per la seva matricula.
+    public Vehicle cercarVehicle(String matricula) { 
         return vehicles.get(matricula);
         
     }
     
+    // Metode per fer proves a la nostra clase de proves (Per mostrar per la consola).
     public HashMap<String, Vehicle> getVehicles() {
         return vehicles;
         
