@@ -4,17 +4,23 @@ import com.movefast.clients.Client;
 import com.movefast.empresa.Empresa;
 import com.movefast.vehicles.Vehicle;
 import java.util.HashMap;
+import com.movefast.lloguer.Lloguer;
+import java.util.ArrayList;
 
 public class Movefast {
     
     private HashMap<String, Client> clients;
     private HashMap<String, Empresa> empreses;
     private HashMap<String, Vehicle> vehicles;
+    private ArrayList<Lloguer> lloguers;
+    private HashMap<String,ArrayList> llistaLloguers;
     
     public Movefast() {
         clients = new HashMap<String, Client>();
         empreses = new HashMap<String, Empresa>();
         vehicles = new HashMap<String, Vehicle>();
+        lloguers = new ArrayList<>();
+        llistaLloguers = new HashMap<String,ArrayList>();
     }
     
     // Dona d'alta un client.
@@ -23,6 +29,8 @@ public class Movefast {
         clients.put(client.getDni(), client);
         
     }
+    
+    
     
     // Dona de baixa un client per el seu DNI.
     public void baixaClient(String dni) { 
@@ -40,6 +48,10 @@ public class Movefast {
     public HashMap<String, Client> getClients() { 
         return clients;
     }
+    
+   public void altaLloguer(Lloguer lloguer){
+       llistaLloguers.put(lloguer.getClient().getDni(), lloguers);
+   }
     
     // Dona d'alta una empresa.
     public void altaEmpresa(Empresa empresa) { 
