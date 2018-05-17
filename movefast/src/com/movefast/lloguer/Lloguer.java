@@ -5,6 +5,8 @@
  */
 package com.movefast.lloguer;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author ayoub
@@ -12,15 +14,17 @@ package com.movefast.lloguer;
 public class Lloguer {
     
     private int numFactura;
-    private String dataLliurament;
-    private String dataEntrega;
+    private LocalDate dateLliurament;
+    private LocalDate dateEntrega;
+   
 
-    public Lloguer(int numFactura, String dataLliurament, String dataEntrega) {
+    public Lloguer(int numFactura, LocalDate dateLliurament, LocalDate dateEntrega) {
         this.numFactura = numFactura;
-        this.dataLliurament = dataLliurament;
-        this.dataEntrega = dataEntrega;
+        this.dateLliurament = dateLliurament;
+        this.dateEntrega = dateEntrega;
     }
 
+    
     public int getNumFactura() {
         return numFactura;
     }
@@ -29,22 +33,15 @@ public class Lloguer {
         this.numFactura = numFactura;
     }
 
-    public String getDataLliurament() {
-        return dataLliurament;
+    public LocalDate getDateLliurament() {
+        return dateLliurament;
     }
 
-    public void setDataLliurament(String dataLliurament) {
-        this.dataLliurament = dataLliurament;
-    }
-
-    public String getDataEntrega() {
-        return dataEntrega;
-    }
-
-    public void setDataEntrega(String dataEntrega) {
-        this.dataEntrega = dataEntrega;
+    public void setDateLliurament(LocalDate dateLliurament) {
+        this.dateLliurament = dateLliurament;
     }
     
-    
-
+    public LocalDate getDateEntrega() {
+        return dateEntrega;
+    }
 }
