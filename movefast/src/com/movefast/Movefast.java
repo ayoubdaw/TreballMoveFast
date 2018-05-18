@@ -56,12 +56,16 @@ public class Movefast {
 
     }
 
-    public void mostrarLloguers() {
-
+    public ArrayList<Lloguer> mostrarLloguers(Client client) {
+ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
         for (int i = 0; i < lloguers.size(); i++) {
-            /*  Lloguer get = lloguers.get(i); */
-            System.out.println(lloguers.get(i));
+             Lloguer get = lloguers.get(i); 
+             Client x=get.getClient();
+             if(x.equals(client)){
+            resultat.add(get);
+             }
         }
+        return resultat;
 
         /*   Lloguer llog1 = lloguers.get(i);
          

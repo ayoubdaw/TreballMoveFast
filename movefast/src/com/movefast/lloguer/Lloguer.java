@@ -21,6 +21,10 @@ public class Lloguer {
         this.client = client;
     }
 
+  
+
+  
+
     public int getNumFactura() {
         return numFactura;
     }
@@ -60,6 +64,12 @@ public class Lloguer {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    @Override
+    public String toString() {
+        return "Lloguer{" + "numFactura=" + numFactura + ", dateLliurament=" + dateLliurament + ", dateEntrega=" + dateEntrega + ", vehicle=" + vehicle + ", client=" + client + '}';
+    }
+    
     
     public double calculPreuLloguer(Vehicle vehicle){
         double preuDia;
