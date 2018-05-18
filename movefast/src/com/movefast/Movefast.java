@@ -48,21 +48,24 @@ public class Movefast {
     }
 
     public void omplirLloguers(Lloguer lloguer) {
-      
-            lloguers.add(lloguer);
-        
+
+        /*  lloguers.add(0, lloguer);*/
+        for (int i = 0; i < lloguers.size(); i++) {
+            lloguers.add(i, lloguer);
+        }
 
     }
-     public void mostrarLloguers() {
-           
-         for (int i =0; i< lloguers.size();i++){
-             lloguers.get(i);
-         }
-         
-      /*   Lloguer llog1 = lloguers.get(0);
+
+    public void mostrarLloguers() {
+
+        for (int i = 0; i < lloguers.size(); i++) {
+            /*  Lloguer get = lloguers.get(i); */
+            System.out.println(lloguers.get(i));
+        }
+
+        /*   Lloguer llog1 = lloguers.get(i);
          
          return llog1;*/
-
     }
 
     public void altaLloguer(Lloguer lloguer) {
