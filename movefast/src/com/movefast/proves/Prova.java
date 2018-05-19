@@ -26,7 +26,7 @@ public class Prova {
        
         Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,Vehicle1,Ayoub);
         Lloguer llog2 = new Lloguer(2, date1, date2,Vehicle2,Ayoub);
-        
+        Lloguer llog3 = new Lloguer(3,dataLliurament,dataEntrega,Vehicle2,Ayoub);
         c.altaClient(Ayoub);
         c.altaClient(Emilio);
         HashMap<String, Client> clients = c.getClients();
@@ -42,10 +42,12 @@ public class Prova {
        // System.out.println(c.cercarVehicle("1558-TKR"));
         // System.out.println(vehicles);
 
-       // c.omplirLloguers(llog1);
-       // c.omplirLloguers(llog2);
-       c.crearLloguer(llog1);
-       c.crearLloguer(llog2);
+       c.omplirLloguers(llog1);
+       c.omplirLloguers(llog2);
+   
+       c.omplirLloguers(llog3);
+       //c.crearLloguer(llog1);
+      // c.crearLloguer(llog2);
       // System.out.println(c.mostrarLloguers(Ayoub));
        ArrayList<Lloguer> mostrarLloguers = c.mostrarLloguers(Ayoub);
         for (Lloguer actual : mostrarLloguers) {
