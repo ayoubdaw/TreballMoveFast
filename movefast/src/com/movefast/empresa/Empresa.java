@@ -1,10 +1,13 @@
 package com.movefast.empresa;
 
+import com.movefast.clients.Leasing;
+
 public class Empresa {
 
     private boolean descompte;
     private String cif;
     private String nomEmpresa;
+    private Leasing leasing;
 
     // CONSTRUCTOR DE EMPRESA
     public Empresa(boolean descompte, String cif, String nomEmpresa) {

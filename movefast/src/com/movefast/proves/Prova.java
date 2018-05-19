@@ -59,8 +59,9 @@ public class Prova {
       c.omplirVehicless(Vehicle2);
       c.omplirVehicless(vehicle3);
       
-      Vehicle mostrarVehiclesDiponibles = c.consultarVehiclesTipus("B", date1, date2);
-      for(Vehicle diponible:mostrarVehiclesDisponibles){
+      /* l'ho de abaix un intent */
+      /*  ArrayList<Vehicle> mostrarVehiclesDiponibles = c.consultarVehiclesTipus("B", date1, date2);
+      for(Vehicle diponible:mostrarVehiclesDisponibles){ */
           
       }
       
@@ -68,6 +69,6 @@ public class Prova {
         }
        
         
-    }
+    
     
 
