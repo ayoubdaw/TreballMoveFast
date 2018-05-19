@@ -5,6 +5,7 @@ import com.movefast.empresa.Empresa;
 import com.movefast.vehicles.Vehicle;
 import java.util.HashMap;
 import com.movefast.lloguer.Lloguer;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Movefast {
@@ -47,6 +48,43 @@ public class Movefast {
         return clients;
     }
 
+    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {//no funciona
+        boolean disponible = true;
+
+        for (Lloguer lloguer : lloguers) {
+
+            if (lloguer.getVehicle().equals(v)) {
+
+            }
+
+            if (!(dataInici.isAfter(lloguer.getDateEntrega()) || dataFi.isBefore(lloguer.getDateLliurament()))) {
+                disponible = false;
+                return disponible;
+            }
+
+        }
+        return disponible;
+    }
+
+    public void crearLloguer(Lloguer lloguer) {
+        if (consultarDisponibilitat(lloguer.getDateLliurament(), lloguer.getDateEntrega(), lloguer.getVehicle())) {
+            lloguers.add(lloguer);
+        } else {
+            //hem de posar excepcio
+        }
+    }
+
+    public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
+
+        for (Lloguer lloguer : lloguers) {
+            if (lloguer.getDateLliurament().equals(dataInici) && lloguer.getDateEntrega().equals(dataFi)) {
+                return lloguer;
+            }
+        }
+        return null;
+    }
+
+
     public void omplirLloguers(Lloguer lloguer) {
 
         /*  lloguers.add(0, lloguer);*/
@@ -57,13 +95,13 @@ public class Movefast {
     }
 
     public ArrayList<Lloguer> mostrarLloguers(Client client) {
-ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
+        ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
         for (int i = 0; i < lloguers.size(); i++) {
-             Lloguer get = lloguers.get(i); 
-             Client x=get.getClient();
-             if(x.equals(client)){
-            resultat.add(get);
-             }
+            Lloguer get = lloguers.get(i);
+            Client x = get.getClient();
+            if (x.equals(client)) {
+                resultat.add(get);
+            }
         }
         return resultat;
 

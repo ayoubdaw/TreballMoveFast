@@ -24,8 +24,8 @@ public class Prova {
         LocalDate dataEntrega = LocalDate.of(2018, 6, 10);
         
        
-        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,Vehicle1,Emilio);
-        Lloguer llog2 = new Lloguer(2, date1, date2,Vehicle2,Emilio);
+        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,Vehicle1,Ayoub);
+        Lloguer llog2 = new Lloguer(2, date1, date2,Vehicle2,Ayoub);
         
         c.altaClient(Ayoub);
         c.altaClient(Emilio);
@@ -42,13 +42,16 @@ public class Prova {
        // System.out.println(c.cercarVehicle("1558-TKR"));
         // System.out.println(vehicles);
 
-        c.omplirLloguers(llog1);
-        c.omplirLloguers(llog2);
-        //System.out.println(c.mostrarLloguers(llog1));
-        ArrayList<Lloguer> mostrarLloguers = c.mostrarLloguers(Emilio);
+       // c.omplirLloguers(llog1);
+       // c.omplirLloguers(llog2);
+       c.crearLloguer(llog1);
+       c.crearLloguer(llog2);
+      // System.out.println(c.mostrarLloguers(Ayoub));
+       ArrayList<Lloguer> mostrarLloguers = c.mostrarLloguers(Ayoub);
         for (Lloguer actual : mostrarLloguers) {
             System.out.println(actual.toString());
         }
+       
         
     }
     
