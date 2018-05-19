@@ -15,12 +15,15 @@ public class Movefast {
     private HashMap<String, Vehicle> vehicles;
     private ArrayList<Lloguer> lloguers;
     private HashMap<String, ArrayList> llistaLloguers;
+    // el seguent arraylist seria per emmegatzemar els vehicles amb els seus lloguers per poder saber si estan disponibles
+    private ArrayList<Vehicle> vehicless;
 
     public Movefast() {
         clients = new HashMap<String, Client>();
         empreses = new HashMap<String, Empresa>();
         vehicles = new HashMap<String, Vehicle>();
         lloguers = new ArrayList<>();
+        vehicless = new ArrayList<>();
         llistaLloguers = new HashMap<String, ArrayList>();
     }
 
@@ -84,14 +87,43 @@ public class Movefast {
         return null;
     }
 
+    public ArrayList<Vehicle> consultarVehiclesTipus(String tipusCarnet, LocalDate dataInici, LocalDate dataFi) {
+       
+// aquest mètode intenta cercar els vehicles que estan disponibles entre unes dates determinades i d'un tipus determinat
+          
+          ArrayList<Vehicle> resultat = new ArrayList<Vehicle>();
+        for (int i = 0; i < vehicless.size(); i++) {
+            Lloguer get = lloguers.get(i);
+            Vehicle x = get.getVehicle();
+          if (x.getTipusCarnet().equals(tipusCarnet) && x.getLloguer().getDateEntrega().isBefore(dataInici) && x.getLloguer().getDateLliurament().isBefore(dataFi)) {
+                resultat.add(get);
+            }
+        }
+    
+       return resultat;
+
+      
+    }
+        
+        
+        
+
+    
 
     public void omplirLloguers(Lloguer lloguer) {
 
         /*  lloguers.add(0, lloguer);*/
-        for (int i = 0; i < lloguers.size(); i++) {
-            lloguers.add(i, lloguer);
-        }
+ /*   for (int i = 0; i < lloguers.size(); i++) { */
+        lloguers.add(lloguer);
+        /*  } */
 
+    }
+    
+    
+    public void omplirVehicless (Vehicle vehicleLloguer){
+     // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers   
+        vehicless.add(vehicleLloguer);
+        
     }
 
     public ArrayList<Lloguer> mostrarLloguers(Client client) {
@@ -105,9 +137,7 @@ public class Movefast {
         }
         return resultat;
 
-        /*   Lloguer llog1 = lloguers.get(i);
-         
-         return llog1;*/
+      
     }
 
     public void altaLloguer(Lloguer lloguer) {

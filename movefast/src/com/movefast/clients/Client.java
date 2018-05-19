@@ -57,6 +57,13 @@ public class Client {
         this.numComptebancari = numComptebancari;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" + "dni=" + dni + ", nom=" + nom + ", llinatge=" + llinatge + ", telefon=" + telefon + ", numComptebancari=" + numComptebancari + '}';
+    }
+    
+    
+
 }
 
 

@@ -5,6 +5,8 @@
  */
 package com.movefast.vehicles;
 
+import com.movefast.lloguer.Lloguer;
+
 /**
  *
  * @author Esteve
@@ -12,10 +14,11 @@ package com.movefast.vehicles;
 public class Vehicle {
 
     //atributs
-    protected String matricula;
-    protected double preuDia;
-    protected String tipusCarnet;
-    protected boolean disponible;
+    private String matricula;
+    private double preuDia;
+    private String tipusCarnet;
+    private boolean disponible;
+    private Lloguer lloguer;
     
     //constructor
     public Vehicle(String matricula, double preuDia, String tipusCarnet, boolean disponible) {
@@ -24,6 +27,16 @@ public class Vehicle {
         this.tipusCarnet = tipusCarnet;
         this.disponible = disponible;
     }
+
+    public Vehicle(String matricula, double preuDia, String tipusCarnet, boolean disponible, Lloguer lloguer) {
+        this.matricula = matricula;
+        this.preuDia = preuDia;
+        this.tipusCarnet = tipusCarnet;
+        this.disponible = disponible;
+        this.lloguer = lloguer;
+    }
+    
+    
 
     //getters & setters matricula, preuDia, tipusCarnet, disponible
     public String getMatricula() {
@@ -37,6 +50,11 @@ public class Vehicle {
     public String getTipusCarnet() {
         return tipusCarnet;
     }
+
+    public Lloguer getLloguer() {
+        return lloguer;
+    }
+    
 
     public boolean isDisponible() {
         return disponible;
