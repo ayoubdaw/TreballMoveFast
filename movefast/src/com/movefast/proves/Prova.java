@@ -12,11 +12,11 @@ public class Prova {
     
     public static void main(String[] args) {
         Movefast c = new Movefast();
-        Client Ayoub = new Client("46391111L", "Ayoub", "Bouyssfdaouan", 601226553, "458788741p");
-        Client Emilio = new Client("463911231L", "Emilio", "Gallardo", 601226553, "4587f21741p");
+        Client ayoub = new Client("46391111L", "Ayoub", "Bouyssfdaouan", 601226553, "458788741p");
+        Client emilio = new Client("463911231L", "Emilio", "Gallardo", 601226553, "4587f21741p");
         
-        Vehicle Vehicle1 = new Vehicle("7458-QWE", 105.5, "B", true);
-        Vehicle Vehicle2 = new Vehicle("1558-TKR", 105.5, "B", false);
+        Vehicle vehicle1 = new Vehicle("7458-QWE", 105.5, "B", true);
+        Vehicle vehicle2 = new Vehicle("1558-TKR", 105.5, "B", false);
        
         
         LocalDate date1 = LocalDate.of(2018, 5, 15);
@@ -25,20 +25,20 @@ public class Prova {
         LocalDate dataEntrega = LocalDate.of(2018, 6, 10);
         
        
-        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,Vehicle1,Ayoub);
-        Lloguer llog2 = new Lloguer(2, date1, date2,Vehicle2,Ayoub);
-        Lloguer llog3 = new Lloguer(3,date1,dataLliurament,Vehicle2,Ayoub);
+        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,vehicle1,ayoub);
+        Lloguer llog2 = new Lloguer(2, date1, date2,vehicle2,ayoub);
+        Lloguer llog3 = new Lloguer(3,date1,dataLliurament,vehicle2,ayoub);
         
          Vehicle vehicle3 = new Vehicle("6723-YHU",78.7,"B",true,llog1);
-        c.altaClient(Ayoub);
-        c.altaClient(Emilio);
+        c.altaClient(ayoub);
+        c.altaClient(emilio);
         HashMap<String, Client> clients = c.getClients();
         HashMap<String, Vehicle> vehicles = c.getVehicles();
-        c.baixaClient("46391111L");
+        // c.baixaClient("46391111L");
         // System.out.println(clients);
         // System.out.println(c.cercarClient("463911231L"));
-        c.altaVehicle(Vehicle1);
-        c.altaVehicle(Vehicle2);
+        c.altaVehicle(vehicle1);
+        c.altaVehicle(vehicle2);
         //System.out.println(vehicles);
         // c.baixaVehicle("7458-QWE");
         // System.out.println(vehicles);
@@ -55,18 +55,32 @@ public class Prova {
       /* ArrayList<Lloguer> mostrarLloguers = c.mostrarLloguers(Ayoub);
         for (Lloguer actual : mostrarLloguers) {
             System.out.println(actual.toString()); */
-      c.omplirVehicless(Vehicle1);
-      c.omplirVehicless(Vehicle2);
-      c.omplirVehicless(vehicle3);
       
-      /* l'ho de abaix un intent */
-      /*  ArrayList<Vehicle> mostrarVehiclesDiponibles = c.consultarVehiclesTipus("B", date1, date2);
-      for(Vehicle diponible:mostrarVehiclesDisponibles){ */
+      
+    /*  c.omplirVehicles(vehicle1);
+      c.omplirVehicles(vehicle2);
+      c.omplirVehicles(vehicle3); */
+      
+     // System.out.println(c.cercarClient("46391111L")); 
+      
+      
+      /* l'ho de abaix un intent 
+      ArrayList<Vehicle> mostrarVehiclesDiponibles = c.consultarVehiclesDisponibles(dataEntrega, date2);
+       
+      
+      for(Vehicle disponible: mostrarVehiclesDisponibles){
+          
+          System.out.println(disponible.toString());
+      } */
+      
+      System.out.println(c.consultarVehiclesDisponibles(dataEntrega, date2));
+      
+     
           
       }
       
       
-        }
+    }
        
         
     

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import com.movefast.lloguer.Lloguer;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Movefast {
 
@@ -15,15 +16,14 @@ public class Movefast {
     private HashMap<String, Vehicle> vehicles;
     private ArrayList<Lloguer> lloguers;
     private HashMap<String, ArrayList> llistaLloguers;
-    // el seguent arraylist seria per emmegatzemar els vehicles amb els seus lloguers per poder saber si estan disponibles
-    private ArrayList<Vehicle> vehicless;
+  
 
     public Movefast() {
         clients = new HashMap<String, Client>();
         empreses = new HashMap<String, Empresa>();
         vehicles = new HashMap<String, Vehicle>();
         lloguers = new ArrayList<>();
-        vehicless = new ArrayList<>();
+
         llistaLloguers = new HashMap<String, ArrayList>();
     }
 
@@ -39,12 +39,16 @@ public class Movefast {
         clients.remove(dni);
 
     }
-
-    // Cerca un client per el seu DNI.
+    
+       // Cerca un client per el seu DNI.
     public Client cercarClient(String dni) {
+        
         return clients.get(dni);
+       
 
     }
+
+   
 
     // Metode per fer proves a la nostra clase de proves (Per mostrar per la consola).
     public HashMap<String, Client> getClients() {
@@ -76,6 +80,8 @@ public class Movefast {
             //hem de posar excepcio
         }
     }
+    
+  
 
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
 
@@ -87,28 +93,28 @@ public class Movefast {
         return null;
     }
 
-    public ArrayList<Vehicle> consultarVehiclesTipus(String tipusCarnet, LocalDate dataInici, LocalDate dataFi) {
-       
+    public ArrayList<Vehicle> consultarVehiclesDisponibles(LocalDate dataInici, LocalDate dataFi) {
+
 // aquest mètode intenta cercar els vehicles que estan disponibles entre unes dates determinades i d'un tipus determinat
-          
-          ArrayList<Vehicle> resultat = new ArrayList<Vehicle>();
-        for (int i = 0; i < vehicless.size(); i++) {
-            Lloguer get = lloguers.get(i);
-            Vehicle x = get.getVehicle();
-          if (x.getTipusCarnet().equals(tipusCarnet) && x.getLloguer().getDateEntrega().isBefore(dataInici) && x.getLloguer().getDateLliurament().isBefore(dataFi)) {
-                resultat.add(get);
+        ArrayList<Vehicle> resultat = new ArrayList<>();
+        Collection<Vehicle> llistaVehicles = vehicles.values();
+        for (int i = 0; i < llistaVehicles.size(); i++) {
+            
+            for (int j = 0; j < lloguers.size(); j++) {
+                
+                Vehicle get = vehicles.get(i);
+
+                Lloguer x = get.getLloguer();
+
+                if (x.getDateEntrega().isBefore(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
+                    resultat.add(get);
+                }
             }
         }
-    
-       return resultat;
 
-      
+        return resultat;
+
     }
-        
-        
-        
-
-    
 
     public void omplirLloguers(Lloguer lloguer) {
 
@@ -118,13 +124,12 @@ public class Movefast {
         /*  } */
 
     }
-    
-    
-    public void omplirVehicless (Vehicle vehicleLloguer){
-     // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers   
-        vehicless.add(vehicleLloguer);
-        
-    }
+
+   /* public void omplirVehicles(Vehicle vehicleLloguer) {
+        // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers   
+        vehicles.
+
+    } */
 
     public ArrayList<Lloguer> mostrarLloguers(Client client) {
         ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
@@ -137,7 +142,6 @@ public class Movefast {
         }
         return resultat;
 
-      
     }
 
     public void altaLloguer(Lloguer lloguer) {
