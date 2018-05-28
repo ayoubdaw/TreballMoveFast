@@ -98,17 +98,18 @@ public class Movefast {
 // aquest mètode intenta cercar els vehicles que estan disponibles entre unes dates determinades i d'un tipus determinat
         ArrayList<Vehicle> resultat = new ArrayList<>();
         Collection<Vehicle> llistaVehicles = vehicles.values();
-        for (int i = 0; i < llistaVehicles.size(); i++) {
+        for (Vehicle vehicle : llistaVehicles) {
+            
             
             for (int j = 0; j < lloguers.size(); j++) {
-                
-                Vehicle get = vehicles.get(i);
-
-                Lloguer x = get.getLloguer();
-
-                if (x.getDateEntrega().isBefore(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
-                    resultat.add(get);
+                Lloguer x = lloguers.get(j);
+                if (x.getVehicle().equals(vehicle)) {
+                   if (x.getDateEntrega().isBefore(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
+                        resultat.add(vehicle);
+                    } 
                 }
+
+                
             }
         }
 
