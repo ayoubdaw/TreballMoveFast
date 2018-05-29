@@ -126,11 +126,19 @@ public class Movefast {
 
     }
 
-   /* public void omplirVehicles(Vehicle vehicleLloguer) {
-        // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers   
-        vehicles.
+   public ArrayList<Lloguer> omplirVehicles(Vehicle vehicle) {
+        // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers  
+    ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
+        for (int i = 0; i < lloguers.size(); i++) {
+            Lloguer get = lloguers.get(i);
+            Vehicle x = get.getVehicle();
+            if (x.equals(vehicle)) {
+                resultat.add(get);
+            }
+        }
+        return resultat;
 
-    } */
+    } 
 
     public ArrayList<Lloguer> mostrarLloguers(Client client) {
         ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
