@@ -3,6 +3,7 @@ package com.movefast;
 import com.movefast.clients.Client;
 import com.movefast.clients.Leasing;
 import com.movefast.empresa.Empresa;
+import com.movefast.empresaLeasing.EmpresaLeasing;
 import com.movefast.vehicles.Vehicle;
 import java.util.HashMap;
 import com.movefast.lloguer.Lloguer;
@@ -54,7 +55,6 @@ public class Movefast {
     public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {
         boolean disponible = true;
 
-    
         for (int j = 0; j < lloguers.size(); j++) {
             Lloguer x = lloguers.get(j);
             if (x.getVehicle().equals(v)) {
@@ -92,15 +92,12 @@ public class Movefast {
         ArrayList<Vehicle> resultat = new ArrayList<>();
         Collection<Vehicle> llistaVehicles = vehicles.values();
         for (Vehicle vehicle : llistaVehicles) {
-            
 
-                if (consultarDisponibilitat(dataInici, dataFi, vehicle) == true) {
-                    
-            
-                    resultat.add(vehicle);
-                }
+            if (consultarDisponibilitat(dataInici, dataFi, vehicle) == true) {
+
+                resultat.add(vehicle);
             }
-     
+        }
 
         return resultat;
 
@@ -108,9 +105,7 @@ public class Movefast {
 
     public void omplirLloguers(Lloguer lloguer) {
 
-
         lloguers.add(lloguer);
-        
 
     }
 
@@ -140,6 +135,7 @@ public class Movefast {
         return resultat;
 
     }
+
     //Recupera l’historial de lloguers d’un client,ordenats per la data inicial de forma decreixent.
     public ArrayList<Lloguer> consultaLloguerClient(Client client) {
         ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
@@ -153,12 +149,12 @@ public class Movefast {
         return lloguersClient;
     }
 
-public ArrayList<Lloguer> consultaLloguerEmpresa(Client leasing) {
+    public ArrayList<Lloguer> consultaLloguerEmpresa(EmpresaLeasing empresaLea) {
         ArrayList<Lloguer> lloguersEmpresa = new ArrayList<Lloguer>();
 
         for (Lloguer lloguer : lloguers) {
-            if (lloguer.getClient() instanceof Client
-                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(leasing)) { 
+            if (lloguer.getClient() instanceof Leasing
+                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empresaLea)) { 
                 lloguersEmpresa.add(lloguer);
             }
         }
@@ -166,18 +162,17 @@ public ArrayList<Lloguer> consultaLloguerEmpresa(Client leasing) {
         return lloguersEmpresa;
     }
 
-    
-      public double calcularPreuLloguer(Lloguer ll) {
+    public double calcularPreuLloguer(Lloguer ll) {
         long dies;
         double preu;
-        dies = ChronoUnit.DAYS.between(ll.getDateLliurament(),ll.getDateEntrega()) + 1;
+        dies = ChronoUnit.DAYS.between(ll.getDateLliurament(), ll.getDateEntrega()) + 1;
 
         Vehicle v = ll.getVehicle();
         if (ll.getClient() instanceof Leasing) {
             preu = dies * v.getPreuDia();
         } else {
-            
-            preu = dies * (v.getPreuDia()*0.9);
+
+            preu = dies * (v.getPreuDia() * 0.9);
         }
         return preu;
     }
