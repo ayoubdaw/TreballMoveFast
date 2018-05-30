@@ -52,23 +52,13 @@ public class Movefast {
     public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {
         boolean disponible = true;
 
-        /*for (Lloguer lloguer : lloguers) {
-
-            if (lloguer.getVehicle().equals(v)) {
-
-            }
-
-            if (!(dataInici.isAfter(lloguer.getDateEntrega()) || dataFi.isBefore(lloguer.getDateLliurament()))) {
-                disponible = false;
-                return disponible;
-            }
-
-        }*/
+    
         for (int j = 0; j < lloguers.size(); j++) {
             Lloguer x = lloguers.get(j);
             if (x.getVehicle().equals(v)) {
                 if (x.getDateEntrega().isAfter(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
                     disponible = false;
+                    break;
                 }
             }
 
@@ -100,27 +90,15 @@ public class Movefast {
         ArrayList<Vehicle> resultat = new ArrayList<>();
         Collection<Vehicle> llistaVehicles = vehicles.values();
         for (Vehicle vehicle : llistaVehicles) {
-            for (int j = 0; j < lloguers.size(); j++) {
-                Lloguer x = lloguers.get(j);
+            
 
-                if (consultarDisponibilitat(dataInici, dataFi, vehicle) == false) {
+                if (consultarDisponibilitat(dataInici, dataFi, vehicle) == true) {
                     
-                    
-
-                } else {
+            
                     resultat.add(vehicle);
                 }
             }
-
-        }
-        /*if (x.getVehicle().equals(vehicle)) {
-                   if (x.getDateEntrega().isBefore(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
-                        resultat.add(vehicle);
-                    } /*
-                }
-
-            }
-        }
+     
 
         return resultat;
 
@@ -128,10 +106,9 @@ public class Movefast {
 
     public void omplirLloguers(Lloguer lloguer) {
 
-        /*  lloguers.add(0, lloguer);*/
- /*   for (int i = 0; i < lloguers.size(); i++) { */
+
         lloguers.add(lloguer);
-        /*  } */
+        
 
     }
 
