@@ -71,15 +71,7 @@ public class Lloguer {
     }
     
     
-    public double calculPreuLloguer(Vehicle vehicle){
-        double preuDia;
-        double totalPagar;
-        preuDia = vehicle.getPreuDia();
-        int restaDies;
-        restaDies = (int) (ChronoUnit.DAYS.between(dateEntrega, dateLliurament)+1);
-        totalPagar = preuDia*restaDies;
-        return totalPagar;
-    }
+ 
    
 
 }

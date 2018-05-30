@@ -1,11 +1,13 @@
 package com.movefast;
 
 import com.movefast.clients.Client;
+import com.movefast.clients.Leasing;
 import com.movefast.empresa.Empresa;
 import com.movefast.vehicles.Vehicle;
 import java.util.HashMap;
 import com.movefast.lloguer.Lloguer;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -137,6 +139,47 @@ public class Movefast {
         }
         return resultat;
 
+    }
+    //Recupera l’historial de lloguers d’un client,ordenats per la data inicial de forma decreixent.
+    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
+        ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
+
+        for (Lloguer lloguer : lloguers) {
+            if (lloguer.getClient().equals(client)) {
+                lloguersClient.add(lloguer);
+            }
+        }
+        lloguersClient.sort((a, b) -> b.getDateEntrega().compareTo(a.getDateEntrega()));
+        return lloguersClient;
+    }
+
+public ArrayList<Lloguer> consultaLloguerEmpresa(Client leasing) {
+        ArrayList<Lloguer> lloguersEmpresa = new ArrayList<Lloguer>();
+
+        for (Lloguer lloguer : lloguers) {
+            if (lloguer.getClient() instanceof Client
+                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(leasing)) { 
+                lloguersEmpresa.add(lloguer);
+            }
+        }
+        lloguersEmpresa.sort((a, b) -> b.getDateEntrega().compareTo(a.getDateEntrega()));
+        return lloguersEmpresa;
+    }
+
+    
+      public double calcularPreuLloguer(Lloguer ll) {
+        long dies;
+        double preu;
+        dies = ChronoUnit.DAYS.between(ll.getDateLliurament(),ll.getDateEntrega()) + 1;
+
+        Vehicle v = ll.getVehicle();
+        if (ll.getClient() instanceof Leasing) {
+            preu = dies * v.getPreuDia();
+        } else {
+            
+            preu = dies * (v.getPreuDia()*0.9);
+        }
+        return preu;
     }
 
     // Dona d'alta una empresa.

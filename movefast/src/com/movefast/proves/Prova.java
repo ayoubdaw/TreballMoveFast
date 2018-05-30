@@ -75,8 +75,9 @@ public class Prova {
       
      // System.out.println(c.consultarVehiclesDisponibles(dataEntrega, date2));
        // System.out.println(c.mostrarLloguers(ayoub));
-        System.out.println(c.omplirVehicles(vehicle2));
+       // System.out.println(c.omplirVehicles(vehicle2));
      
+        System.out.println(c.calcularPreuLloguer(llog3));
           
       }
       
