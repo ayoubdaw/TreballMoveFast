@@ -15,8 +15,6 @@ public class Movefast {
     private HashMap<String, Empresa> empreses;
     private HashMap<String, Vehicle> vehicles;
     private ArrayList<Lloguer> lloguers;
-    private HashMap<String, ArrayList> llistaLloguers;
-  
 
     public Movefast() {
         clients = new HashMap<String, Client>();
@@ -24,7 +22,6 @@ public class Movefast {
         vehicles = new HashMap<String, Vehicle>();
         lloguers = new ArrayList<>();
 
-        llistaLloguers = new HashMap<String, ArrayList>();
     }
 
     // Dona d'alta un client.
@@ -39,26 +36,23 @@ public class Movefast {
         clients.remove(dni);
 
     }
-    
-       // Cerca un client per el seu DNI.
+
+    // Cerca un client per el seu DNI.
     public Client cercarClient(String dni) {
-        
+
         return clients.get(dni);
-       
 
     }
-
-   
 
     // Metode per fer proves a la nostra clase de proves (Per mostrar per la consola).
     public HashMap<String, Client> getClients() {
         return clients;
     }
 
-    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {//no funciona
+    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {
         boolean disponible = true;
 
-        for (Lloguer lloguer : lloguers) {
+        /*for (Lloguer lloguer : lloguers) {
 
             if (lloguer.getVehicle().equals(v)) {
 
@@ -67,6 +61,15 @@ public class Movefast {
             if (!(dataInici.isAfter(lloguer.getDateEntrega()) || dataFi.isBefore(lloguer.getDateLliurament()))) {
                 disponible = false;
                 return disponible;
+            }
+
+        }*/
+        for (int j = 0; j < lloguers.size(); j++) {
+            Lloguer x = lloguers.get(j);
+            if (x.getVehicle().equals(v)) {
+                if (x.getDateEntrega().isAfter(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
+                    disponible = false;
+                }
             }
 
         }
@@ -80,13 +83,11 @@ public class Movefast {
             //hem de posar excepcio
         }
     }
-    
-  
 
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
 
         for (Lloguer lloguer : lloguers) {
-            if (lloguer.getDateLliurament().equals(dataInici) && lloguer.getDateEntrega().equals(dataFi)) {
+            if (lloguer.getDateLliurament().isAfter(dataInici) && lloguer.getDateEntrega().isBefore(dataFi)) {
                 return lloguer;
             }
         }
@@ -99,17 +100,25 @@ public class Movefast {
         ArrayList<Vehicle> resultat = new ArrayList<>();
         Collection<Vehicle> llistaVehicles = vehicles.values();
         for (Vehicle vehicle : llistaVehicles) {
-            
-            
             for (int j = 0; j < lloguers.size(); j++) {
                 Lloguer x = lloguers.get(j);
-                if (x.getVehicle().equals(vehicle)) {
+
+                if (consultarDisponibilitat(dataInici, dataFi, vehicle) == false) {
+                    
+                    
+
+                } else {
+                    resultat.add(vehicle);
+                }
+            }
+
+        }
+        /*if (x.getVehicle().equals(vehicle)) {
                    if (x.getDateEntrega().isBefore(dataInici) && x.getDateLliurament().isBefore(dataFi)) {
                         resultat.add(vehicle);
-                    } 
+                    } /*
                 }
 
-                
             }
         }
 
@@ -126,9 +135,9 @@ public class Movefast {
 
     }
 
-   public ArrayList<Lloguer> omplirVehicles(Vehicle vehicle) {
+    public ArrayList<Lloguer> omplirVehicles(Vehicle vehicle) {
         // mètode per fer una Arraylist on estiguin vinculats els Vehicles amb els seus Lloguers  
-    ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
+        ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
         for (int i = 0; i < lloguers.size(); i++) {
             Lloguer get = lloguers.get(i);
             Vehicle x = get.getVehicle();
@@ -138,7 +147,7 @@ public class Movefast {
         }
         return resultat;
 
-    } 
+    }
 
     public ArrayList<Lloguer> mostrarLloguers(Client client) {
         ArrayList<Lloguer> resultat = new ArrayList<Lloguer>();
@@ -151,10 +160,6 @@ public class Movefast {
         }
         return resultat;
 
-    }
-
-    public void altaLloguer(Lloguer lloguer) {
-        llistaLloguers.put(lloguer.getClient().getDni(), lloguers);
     }
 
     // Dona d'alta una empresa.
