@@ -4,6 +4,7 @@ import com.movefast.Movefast;
 import com.movefast.clients.Client;
 import com.movefast.clients.Leasing;
 import com.movefast.empresaLeasing.EmpresaLeasing;
+import com.movefast.excepcions.LloguerException;
 import com.movefast.vehicles.Vehicle;
 import com.movefast.lloguer.Lloguer;
 import java.time.LocalDate;
@@ -24,8 +25,10 @@ public class Prova {
         LocalDate date2 = LocalDate.of(2018, 6, 15);
         LocalDate dataLliurament = LocalDate.of(2018, 5, 17);
         LocalDate dataEntrega = LocalDate.of(2018, 6, 10);
-
-        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega, vehicle1, ayoub);
+ 
+       try {
+        Lloguer llog1 = new Lloguer(1, dataLliurament, dataEntrega,vehicle1,ayoub);
+       
         Lloguer llog2 = new Lloguer(2, date1, date2, vehicle2, ayoub);
         Lloguer llog3 = new Lloguer(3, date1, dataLliurament, vehicle2, ayoub);
 
@@ -51,6 +54,9 @@ public class Prova {
         c.omplirLloguers(llog3);
         //c.crearLloguer(llog1);
         // c.crearLloguer(llog2);
+         } catch (LloguerException x) {
+           System.out.println("Error: " + x.getMessage());
+       }
         // System.out.println(c.mostrarLloguers(Ayoub));
         /* ArrayList<Lloguer> mostrarLloguers = c.mostrarLloguers(Ayoub);
         for (Lloguer actual : mostrarLloguers) {
