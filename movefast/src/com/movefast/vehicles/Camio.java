@@ -1,11 +1,12 @@
 package com.movefast.vehicles;
+
 public class Camio extends Vehicle {
 
     protected int tara;
 
     //constructor
-    public Camio(int tara, String matricula, double preuDia, String tipusCarnet, boolean disponible) {
-        super(matricula, preuDia, tipusCarnet, disponible);
+    public Camio(int tara, String matricula, double preuDia, String tipusCarnet) {
+        super(matricula, preuDia, tipusCarnet);
         this.tara = tara;
     }
 
@@ -19,5 +20,3 @@ public class Camio extends Vehicle {
     }
 
 }
-
-   

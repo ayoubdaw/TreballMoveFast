@@ -6,13 +6,11 @@ package com.movefast.empresaLeasing;
  */
 public class EmpresaLeasing {
 
-    
     protected String nom;
     protected String direccio;
     protected int telefon;
     protected String contacte;
 
-    
     public EmpresaLeasing(String nom, String direccio, int telefon, String contacte) {
         this.nom = nom;
         this.direccio = direccio;

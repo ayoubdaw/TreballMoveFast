@@ -9,8 +9,8 @@ package com.movefast.clients;
  *
  * @author emilio
  */
-public class Casual extends Client{
-    
+public class Casual extends Client {
+
     private double pagament;
 
     public Casual(double pagament, String dni, String nom, String llinatge, int telefon, String numComptebancari) {

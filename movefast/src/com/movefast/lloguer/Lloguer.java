@@ -5,8 +5,9 @@ import com.movefast.vehicles.Vehicle;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+
 public class Lloguer {
-    
+
     private int numFactura;
     private LocalDate dateLliurament;
     private LocalDate dateEntrega;
@@ -20,10 +21,6 @@ public class Lloguer {
         this.vehicle = vehicle;
         this.client = client;
     }
-
-  
-
-  
 
     public int getNumFactura() {
         return numFactura;
@@ -69,9 +66,5 @@ public class Lloguer {
     public String toString() {
         return "Lloguer{" + "numFactura=" + numFactura + ", dateLliurament=" + dateLliurament + ", dateEntrega=" + dateEntrega + ", vehicle=" + vehicle + ", client=" + client + '}';
     }
-    
-    
- 
-   
 
 }

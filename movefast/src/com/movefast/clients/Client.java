@@ -1,12 +1,13 @@
 package com.movefast.clients;
+
 public class Client {
-    
+
     private String dni;
     private String nom;
     private String llinatge;
     private int telefon;
     private String numComptebancari;
-    
+
     // CONSTRUCTOR DE CLIENT
     public Client(String dni, String nom, String llinatge, int telefon, String numComptebancari) {
         this.dni = dni;
@@ -61,9 +62,5 @@ public class Client {
     public String toString() {
         return "Client{" + "dni=" + dni + ", nom=" + nom + ", llinatge=" + llinatge + ", telefon=" + telefon + ", numComptebancari=" + numComptebancari + '}';
     }
-    
-    
 
 }
-
-

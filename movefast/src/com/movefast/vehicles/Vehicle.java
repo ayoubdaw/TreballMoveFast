@@ -17,26 +17,13 @@ public class Vehicle {
     private String matricula;
     private double preuDia;
     private String tipusCarnet;
-    private boolean disponible;
-    private Lloguer lloguer;
-    
-    //constructor
-    public Vehicle(String matricula, double preuDia, String tipusCarnet, boolean disponible) {
-        this.matricula = matricula;
-        this.preuDia = preuDia;
-        this.tipusCarnet = tipusCarnet;
-        this.disponible = disponible;
-    }
 
-    public Vehicle(String matricula, double preuDia, String tipusCarnet, boolean disponible, Lloguer lloguer) {
+    //constructor
+    public Vehicle(String matricula, double preuDia, String tipusCarnet) {
         this.matricula = matricula;
         this.preuDia = preuDia;
         this.tipusCarnet = tipusCarnet;
-        this.disponible = disponible;
-        this.lloguer = lloguer;
     }
-    
-    
 
     //getters & setters matricula, preuDia, tipusCarnet, disponible
     public String getMatricula() {
@@ -51,15 +38,6 @@ public class Vehicle {
         return tipusCarnet;
     }
 
-    public Lloguer getLloguer() {
-        return lloguer;
-    }
-    
-
-    public boolean isDisponible() {
-        return disponible;
-    }
-
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
@@ -72,15 +50,9 @@ public class Vehicle {
         this.tipusCarnet = tipusCarnet;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
-
     @Override
     public String toString() {
-        return "Vehicle{" + "matricula=" + matricula + ", preuDia=" + preuDia + ", tipusCarnet=" + tipusCarnet + ", disponible=" + disponible + '}';
+        return "Vehicle{" + "matricula=" + matricula + ", preuDia=" + preuDia + ", tipusCarnet=" + tipusCarnet + '}';
     }
-    
-    
-      
+
 }

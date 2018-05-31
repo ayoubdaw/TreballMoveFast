@@ -12,7 +12,7 @@ package com.movefast.vehicles;
 public class Furgoneta extends Vehicle {
 
     //constructor
-    public Furgoneta(String matricula, double preuDia, String tipusCarnet, boolean disponible) {
-        super(matricula, preuDia, tipusCarnet, disponible);
+    public Furgoneta(String matricula, double preuDia, String tipusCarnet) {
+        super(matricula, preuDia, tipusCarnet);
     }
 }

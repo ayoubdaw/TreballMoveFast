@@ -10,13 +10,13 @@ package com.movefast.vehicles;
  * @author Esteve
  */
 public class Turisme extends Vehicle {
-    
+
     //atributs
     protected int passatgers;
 
     //constructor
     public Turisme(int passatgers, String matricula, double preuDia, String tipusCarnet, boolean disponible) {
-        super(matricula, preuDia, tipusCarnet, disponible);
+        super(matricula, preuDia, tipusCarnet);
         this.passatgers = passatgers;
     }
 

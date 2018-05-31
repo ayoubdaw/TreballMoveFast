@@ -5,13 +5,16 @@
  */
 package com.movefast.clients;
 
+import com.movefast.empresaLeasing.EmpresaLeasing;
+
 /**
  *
  * @author emilio
  */
 public class Leasing extends Client {
-    
+
     private double mensualitat;
+    protected EmpresaLeasing empresaLeasing;
 
     public Leasing(double mensualitat, String dni, String nom, String llinatge, int telefon, String numComptebancari) {
         super(dni, nom, llinatge, telefon, numComptebancari);
@@ -24,6 +27,10 @@ public class Leasing extends Client {
 
     public void setMensualitat(double mensualitat) {
         this.mensualitat = mensualitat;
+    }
+
+    public EmpresaLeasing getEmpresaLeasing() {
+        return empresaLeasing;
     }
 
 }

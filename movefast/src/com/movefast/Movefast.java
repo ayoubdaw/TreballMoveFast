@@ -18,12 +18,14 @@ public class Movefast {
     private HashMap<String, Empresa> empreses;
     private HashMap<String, Vehicle> vehicles;
     private ArrayList<Lloguer> lloguers;
+    private HashMap<String, EmpresaLeasing> empresaLeasing;
 
     public Movefast() {
         clients = new HashMap<String, Client>();
         empreses = new HashMap<String, Empresa>();
         vehicles = new HashMap<String, Vehicle>();
         lloguers = new ArrayList<>();
+        empresaLeasing = new HashMap<String, EmpresaLeasing>();
 
     }
 
@@ -149,17 +151,21 @@ public class Movefast {
         return lloguersClient;
     }
 
-    public ArrayList<Lloguer> consultaLloguerEmpresa(EmpresaLeasing empresaLea) {
+    public ArrayList<Lloguer> consultaLloguerEmpresa(EmpresaLeasing empresaLeasing) {
         ArrayList<Lloguer> lloguersEmpresa = new ArrayList<Lloguer>();
 
         for (Lloguer lloguer : lloguers) {
             if (lloguer.getClient() instanceof Leasing
-                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empresaLea)) { 
+                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empresaLeasing)) {
                 lloguersEmpresa.add(lloguer);
             }
         }
         lloguersEmpresa.sort((a, b) -> b.getDateEntrega().compareTo(a.getDateEntrega()));
         return lloguersEmpresa;
+    }
+
+    public void crearEmpresaLeasing(EmpresaLeasing empLeasing) {
+        empresaLeasing.put(empLeasing.getNom(), empLeasing);
     }
 
     public double calcularPreuLloguer(Lloguer ll) {

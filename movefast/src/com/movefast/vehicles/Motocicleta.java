@@ -12,8 +12,8 @@ package com.movefast.vehicles;
 public class Motocicleta extends Vehicle {
 
     //constructor
-    public Motocicleta(String matricula, double preuDia, String tipusCarnet, boolean disponible) {
-        super(matricula, preuDia, tipusCarnet, disponible);
+    public Motocicleta(String matricula, double preuDia, String tipusCarnet) {
+        super(matricula, preuDia, tipusCarnet);
     }
 
 }
